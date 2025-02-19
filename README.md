@@ -2,8 +2,8 @@
 
 ### Summary:
 This Recipes App allows users to explore a variety of recipes from different cuisines. It provides functionality to fetch and display recipes, manage caching, and display images in an efficient manner. The app follows the MVVM architecture pattern and is built with SwiftUI.
-![RecipesScreenshot](https://github.com/user-attachments/assets/37cbd318-9d9a-4aea-a841-2fca32fa744a)
-![RecipesScreenshot2](https://github.com/user-attachments/assets/44aaeb9f-5928-49ef-b655-08baaacc7293)
+<img src="https://github.com/user-attachments/assets/37cbd318-9d9a-4aea-a841-2fca32fa744a" width="300" />
+<img src="https://github.com/user-attachments/assets/44aaeb9f-5928-49ef-b655-08baaacc7293" width="300" />
 
 ### Focus Areas:
 I prioritized the following areas in this project:
