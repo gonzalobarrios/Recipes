@@ -80,7 +80,6 @@ class NetworkManagerTests: XCTestCase {
     }
     
     private func mockSuccessResponse(data: Data, statusCode: Int, requestInspector: ((URLRequest) -> Void)? = nil) {
-        
         MockURLProtocol.requestHandler = { request in
             requestInspector?(request)
             return (HTTPURLResponse(url: self.baseURL, statusCode: statusCode, httpVersion: nil, headerFields: nil )!, data)

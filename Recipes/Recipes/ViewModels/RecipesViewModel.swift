@@ -10,9 +10,12 @@ import Foundation
 @MainActor
 class RecipesViewModel: ObservableObject {
     @Published var recipes: [Recipe] = []
-    @Published var emptyList: Bool = false
     @Published var isLoading: Bool = false
     @Published var errorMessage: String? = nil
+    
+    var cuisines: [String] {
+        ["All"] + Set(recipes.map { $0.cuisine }).sorted()
+    }
     
     private let recipesService: RecipeServiceProtocol
     
@@ -22,17 +25,14 @@ class RecipesViewModel: ObservableObject {
     
     func getRecipes() async {
         isLoading = true
-        
-        Task {
-            do {
-                recipes = try await recipesService.fetchRecipes()
-            } catch let error as NetworkError {
-                errorMessage = error.localizedDescription
-            } catch {
-                errorMessage = "An unknown error occurred."
-            }
-            isLoading = false
+        do {
+            recipes = try await recipesService.fetchRecipes()
+        } catch let error as NetworkError {
+            errorMessage = error.localizedDescription
+        } catch {
+            errorMessage = "An unknown error occurred."
         }
+        isLoading = false
     }
-    
 }
+
